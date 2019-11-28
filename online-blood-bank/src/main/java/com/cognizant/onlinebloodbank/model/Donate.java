@@ -1,10 +1,12 @@
 package com.cognizant.onlinebloodbank.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -27,10 +29,38 @@ private String state;
 private String area;
 	@NotNull
 	@Column(name="do_cnumber")
-private String contactnumber;
+	private String contactnumber;
+	@NotNull
+    @Column(name="do_pincode")
+	private int pincode;
 
-	@OneToOne(mappedBy="donate")
-	private User user;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="do_us_fk")
+	private User userId;
+@OneToOne(mappedBy="donateid")
+private Slot slotid;
+
+	/*public Slot getSlotid() {
+	return slotid;
+}*/
+
+public void setSlotid(Slot slotid) {
+	this.slotid = slotid;
+}
+
+
+
+	public int getPincode() {
+	return pincode;
+}
+
+
+
+public void setPincode(int pincode) {
+	this.pincode = pincode;
+}
+
+
 
 	public int getDo_id() {
 		return do_id;
@@ -72,12 +102,12 @@ private String contactnumber;
 		this.contactnumber = contactnumber;
 	}
 
-	public User getUser() {
-		return user;
-	}
+	/*public User getUserId() {
+		return userId;
+	}*/
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(User userId) {
+		this.userId = userId;
 	}
 	
 }

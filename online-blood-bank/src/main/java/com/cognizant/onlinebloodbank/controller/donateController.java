@@ -26,11 +26,11 @@ public class donateController {
 	@Autowired
 	UserRepository userRepository;
 	@PostMapping("/{id}")
-	public void addDonor(@PathVariable int id,@RequestBody @Valid Donate donate)
+	public void addDonor(@PathVariable String id,@RequestBody @Valid Donate donate)
 	{
-		User u=userRepository.findById(id).get();
+		User u=userRepository.findByUsername(id);
         u.setDonate(donate);	
-		donate.setUser(u);
+		donate.setUserId(u);
 		userRepository.save(u);
 		donateRepository.save(donate);
 	}
@@ -39,4 +39,7 @@ public class donateController {
 	{
 		return donateRepository.getAll();
 		}
+	
+	
+	
 }

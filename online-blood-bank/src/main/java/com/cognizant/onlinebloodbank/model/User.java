@@ -2,6 +2,7 @@ package com.cognizant.onlinebloodbank.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -77,8 +78,7 @@ private String contactnumber;
 	}
 	@OneToMany(mappedBy="userid")
 	private List<Request> requests;
-	@OneToOne
-	@JoinColumn(name="do_us_fk",referencedColumnName="id")
+	@OneToOne(mappedBy="userId")
 	private Donate donate;
 	public List<Request> getRequests() {
 		return requests;

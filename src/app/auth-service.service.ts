@@ -4,6 +4,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserServiceService } from './user-service.service';
 import { environment } from 'src/environments/environment';
+import { user } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -71,7 +72,7 @@ export class AuthServiceService {
         this.accessToken=data.token;
         console.log(this.accessToken)
        // this.router.navigate(['search-bar']);
-       this.router.navigate(['login']);
+       this.router.navigate(['search']);
       },
       (error)=>{
         this.validCredentials = false;

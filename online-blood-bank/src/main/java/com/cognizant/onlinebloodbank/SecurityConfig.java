@@ -53,8 +53,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		httpSecurity.cors();
 		httpSecurity.csrf().disable().httpBasic().and().authorizeRequests().antMatchers("/users").permitAll().anyRequest().hasAnyRole();
-//		httpSecurity.csrf().disable().httpBasic().and().authorizeRequests().antMatchers("/menu-items").permitAll()
-//				.anyRequest().authenticated().and().addFilter(new JwtAuthorizationFilter(authenticationManager()));
+		//httpSecurity.csrf().disable().httpBasic().and().authorizeRequests().antMatchers("/request").permitAll().anyRequest();
+		//.anyRequest().authenticated().and().addFilter(new JwtAuthorizationFilter(authenticationManager()));
 
 		
 		  httpSecurity.csrf().disable().httpBasic().and().authorizeRequests().

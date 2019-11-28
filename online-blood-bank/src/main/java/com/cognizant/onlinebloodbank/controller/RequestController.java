@@ -28,7 +28,7 @@ UserRepository userRepository;
 @Autowired
 RequestRepository requestRepository;
 @PostMapping("/{id}")
-public void addRequest(@PathVariable int id,@RequestBody @Valid Request request )
+public void addRequest(@PathVariable String id,@RequestBody @Valid Request request )
 {
 	requestService.addRequest(id,request);
 	
@@ -39,9 +39,9 @@ public List<Request> getAll()
 {
 	return requestService.getAll();
 }
-@GetMapping("/{id}")
-public void getRequestDetails(@PathVariable int id)
+/*@GetMapping("/{id}")
+public void getRequestDetails(@PathVariable String id)
 {
 	requestService.getRequestDetails(id);
-}
+}*/
 }

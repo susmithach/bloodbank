@@ -15,9 +15,9 @@ public class RequestService {
 RequestRepository requestRepository;
 @Autowired 
 UserRepository userRepository;
-public void addRequest(int id,Request request)
+public void addRequest(String id,Request request)
 {
-	User u=userRepository.findById(id).get();
+	User u=userRepository.findByUsername(id);
 	u.getRequests().add(request);
 	request.setUserid(u);
 	userRepository.save(u);
@@ -27,9 +27,9 @@ public List<Request> getAll()
 {
 	return requestRepository.getAll();
 }
-public void getRequestDetails(int id)
+/*public void getRequestDetails(String id)
 {
-	User u=userRepository.findById(id).get();
+	User u=userRepository.findByUsername(id);
 	
-}
+}*/
 }

@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 #upbar {
-	background-color: tomato;
+	background-color:gray;
 	color: white !important;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .footer {
-	background-color: tomato;
+	background-color:gray;
 	position: fixed;
 	color: white;
 	width: 100%;
@@ -92,5 +92,43 @@
 }
 .bimage
 {
-    background-image: url("https://www.google.com/search?q=blood+bank+images&rlz=1C1GCEU_enIN855IN855&tbm=isch&source=iu&ictx=1&fir=wTiLuQy5VWUSXM%253A%252C7Qx_UtKiuwH6_M%252C_&vet=1&usg=AI4_-kT8NmI9hU2VOgQ8ltjpDkOJpjAsdQ&sa=X&ved=2ahUKEwj96YLY3oTmAhW-73MBHS94BwIQ9QEwB3oECAgQNw#imgrc=wTiLuQy5VWUSXM:");
+	background-image: url("https://www.google.com/search?q=blood+bank+images&rlz=1C1GCEU_enIN855IN855&tbm=isch&source=iu&ictx=1&fir=wTiLuQy5VWUSXM%253A%252C7Qx_UtKiuwH6_M%252C_&vet=1&usg=AI4_-kT8NmI9hU2VOgQ8ltjpDkOJpjAsdQ&sa=X&ved=2ahUKEwj96YLY3oTmAhW-73MBHS94BwIQ9QEwB3oECAgQNw#imgrc=wTiLuQy5VWUSXM:");
+	height:100%;
+	width:100%;
+	
+}
+.sz
+{
+	width:50%;
+	color:black;
+	background-color: whitesmoke;
+	size:80%;
+}
+.card1{
+    position:fixed;
+    top: 15%;
+    left: 15%;
+    background-color: white;
+    opacity: 0.90;
+    width: 50rem
+}
+.button1 {border-radius: 12px;}
+
+.card2{
+    position:fixed;
+    top: 15%;
+    left: 62%;
+    background-color: white;
+    opacity: 0.90;
+    width: 25rem
+
+}
+.card3{
+    position:fixed;
+    top: 35%;
+    left: 62%;
+    background-color: white;
+    opacity: 0.90;
+    width: 25rem
+
 }

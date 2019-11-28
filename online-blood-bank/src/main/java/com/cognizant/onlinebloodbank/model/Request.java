@@ -29,11 +29,20 @@ private String area;
 	@NotNull
 	@Column(name="re_cnumber")
 private String contactnumber;
+	@NotNull
+	@Column(name="re_pincode")
+	private int pincode;
 	@ManyToOne()
 	@JoinColumn(name="re_us_fk")
 	private User userid;
 	
-/*public User getUserid() {
+public int getPincode() {
+		return pincode;
+	}
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
+	/*public User getUserid() {
 		return userid;
 	}*/
 	public void setUserid(User userid) {

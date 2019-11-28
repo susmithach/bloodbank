@@ -44,15 +44,17 @@
           <label for="age">Age</label> 
           <input type="number" class="form-control" placeholder="Enter Age" formControlName="age" id="age">
           <div class="text-danger" *ngIf="age.invalid && age.errors.required && age.touched">Age is required</div>
-                    </div>
+          <div class="text-danger" *ngIf="age.errors?.min||age.errors?.max">Not a valid age</div>           
+        </div>
                     <div class="col-md-6 col-xs-12  mt-3">
                             <label for="gender">Gender</label>
                             <select class="form-control" id="gender" formControlName="gender" name="gender">
                                 <option>Select gender</option>
-                                <option value="male">Male</option><option value="female" >Female</option>
+                                <option value="male">Male</option>
+                                <option value="female" >Female</option>
                                 <!--<option *ngFor="let g of categories" [ngValue]="g" >{{gender}}</option>-->
                             </select>
-              <div class ="text-danger" *ngIf = "gender.invalid && gender.errors.required"> Gender is required</div>  
+              <div class ="text-danger" *ngIf = "gender.invalid && gender.errors.required && gender.touched"> Gender is required</div>  
               </div>
                 
             </div>
@@ -61,7 +63,8 @@
           <label for="contactnumber">Contact Number</label> 
           <input type="text" class="form-control" placeholder="Enter contact number" formControlName="contactnumber" id="contactnumber">
           <div class="text-danger" *ngIf="contactnumber.invalid && contactnumber.errors.required && contactnumber.touched">Contact number is required</div>
-                    </div>
+          <div class="text-danger" *ngIf="contactnumber.errors?.minlength">Not a valid number</div>            
+        </div>
                     <div class="col-md-6 col-xs-12  mt-3">
           <label for="email">Email</label> 
           <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" id="email">
@@ -77,29 +80,65 @@
                     <div class="col-md-6 col-xs-12  mt-3">
                             <label for="bloodgroup">Blood Group</label>
                             <select class="form-control" id="bloodgroup" formControlName="bloodgroup" name="bloodgroup">  
-                                    <option value="male">Male</option><option value="female">Female</option>
+                                <option hidden>selected</option>    
+                                <option value="A+ve">A+ve</option>
+                                    <option value="B+ve">B+ve</option>
+                                    <option value="O+ve">O+ve</option>
+                                    <option value="AB+ve">AB+ve</option>
+                                    <option value="A-ve">A-ve</option>
+                                    <option value="B-ve">B-ve</option>
+                                    <option value="O-ve">O-ve</option>
+                                    <option value="AB-ve">AB-ve</option>
                                 <!--  <option *ngFor="let g of categories" [ngValue]="g" >{{g}}</option>-->
                             </select>
-                  <div class ="text-danger" *ngIf = "bloodgroup.invalid && bloodgroup.errors.required">Blood group is required</div>  
-                  </div>
+                            <div class ="text-danger" *ngIf = "bloodgroup.invalid && bloodgroup.errors.required && bloodgroup.touched">Blood group is required</div>  
+             
+                       </div>
+                       
                 </div>
 
                 <div class="row ml-5 mr-5">
                         <div class="col-md-6 col-xs-12 mt-3">
                                 <label for="state">State</label>
                                 <select class="form-control" id="state" formControlName="state" name="state">  
-                                        <option value="male">Male</option><option value="female">Female</option>
+                                        <option value="AP">Andhra Pradesh</option>
+                                        <option value="AR">Arunachal Pradesh</option>
+                                        <option value="AS">Assam</option>
+                                        <option value="BR">Bihar</option>
+                                        <option value="CT">Chhattisgarh</option>
+                                        <option value="GA">Goa</option>
+                                        <option value="GJ">Gujarat</option>
+                                        <option value="HR">Haryana</option>
+                                        <option value="HP">Himachal Pradesh</option>
+                                        <option value="JK">Jammu and Kashmir</option>
+                                        <option value="JH">Jharkhand</option>
+                                        <option value="KA">Karnataka</option>
+                                        <option value="KL">Kerala</option>
+                                        <option value="MP">Madhya Pradesh</option>
+                                        <option value="MH">Maharashtra</option>
+                                        <option value="MN">Manipur</option>
+                                        <option value="ML">Meghalaya</option>
+                                        <option value="MZ">Mizoram</option>
+                                        <option value="NL">Nagaland</option>
+                                        <option value="OR">Odisha</option>
+                                        <option value="PB">Punjab</option>
+                                        
                                     <!--  <option *ngFor="let g of categories" [ngValue]="g" >{{g}}</option>-->
                                 </select>
-                      <div class ="text-danger" *ngIf = "state.invalid && state.errors.required">state is required</div>  
+                      <div class ="text-danger" *ngIf = "state.invalid && state.errors.required && state.touched">state is required</div>  
                     </div>
                         <div class="col-md-6 col-xs-12  mt-3">
                                 <label for="area">Area</label>
                                 <select class="form-control" id="area" formControlName="area" name="area">  
-                                        <option value="male">Male</option><option value="female">Female</option>
+                                    <option value="AP">Andhra Pradesh</option>
+                                    <option value="AR">Arunachal Pradesh</option>
+                                    <option value="AS">Assam</option>
+                                    <option value="BR">Bihar</option>
+                                    <option value="CT">Chhattisgarh</option>
+                                    <option value="GA">Goa</option>
                                     <!--  <option *ngFor="let g of categories" [ngValue]="g" >{{g}}</option>-->
                                 </select>
-                      <div class ="text-danger" *ngIf = "area.invalid && area.errors.required">Area is required</div>  
+                      <div class ="text-danger" *ngIf = "area.invalid && area.errors.required && area.touched">Area is required</div>  
                       </div>
                     </div>
                     <div class="row ml-5 mr-5">
@@ -107,7 +146,9 @@
                                     <label for="pincode">Pincode</label> 
           <input type="number" class="form-control" placeholder="Enter pincode" formControlName="pincode" id="pincode">
           <div class="text-danger" *ngIf="pincode.invalid && pincode.errors.required && pincode.touched">Pincode is required</div>
-             </div>
+          <div class="text-danger" *ngIf="pincode.errors?.min||pincode.errors?.max">Not a valid pincode</div>
+              
+        </div>
                         
                         </div>
                

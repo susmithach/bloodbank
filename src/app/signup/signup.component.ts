@@ -31,17 +31,22 @@ export class SignupComponent implements OnInit {
         Validators.required,
         this.matchConfirmPassword.bind(this)
       ]],
-     age:['',[Validators.required]],
+     age:['',[Validators.required,Validators.min(21),Validators.max(60)]],
      gender:['',[Validators.required]],
-    contactnumber:['',[Validators.required]],
+    contactnumber:['',[Validators.required,Validators.minLength(10)]],
     weight:['',[Validators.required]],
     bloodgroup:['',[Validators.required]],
     area:['',[Validators.required]],
     state:['',[Validators.required]],
-    pincode:['',[Validators.required]],
+    pincode:['',[Validators.required,Validators.min(100000),Validators.max(999999)]],
 email:['',[Validators.required]],
     })
+
+
+
   }
+
+  get f() { return this.signUpForm.controls; }
   get username() {
     return this.signUpForm.get('username');
   }

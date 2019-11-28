@@ -10,7 +10,7 @@ import { AuthServiceService } from './auth-service.service';
 export class AppComponent {
   ngOnInit(): void {
     this.loggedIn();
-   
+   this.router.navigate(['home']);
   }
   constructor(private authService:AuthServiceService,public router: Router) {  
   }
