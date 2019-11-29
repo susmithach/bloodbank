@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { RequestbloodComponent } from './requestblood/requestblood.component';
 import { DonatebloodComponent } from './donateblood/donateblood.component';
+import { SlotComponent } from './slot/slot.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { DonatebloodComponent } from './donateblood/donateblood.component';
     HomeComponent,
     SearchComponent,
     RequestbloodComponent,
-    DonatebloodComponent
+    DonatebloodComponent,
+    SlotComponent
   ],
   imports: [
     BrowserModule,

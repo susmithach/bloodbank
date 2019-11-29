@@ -3,6 +3,6 @@ export interface donate{
     state:string;
     pincode:number;
     area:string;
-    conatctnumber:string;
+    contactnumber:string;
    
    }

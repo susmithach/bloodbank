@@ -1,0 +1,72 @@
+<div class="row">
+        <div class="col-xs-11 mt-3 ml-5 mr-5 mb-5 mx-auto">
+            <div class="card mt-5">
+                <h1 class="mt-3 ml-5">BookSlot</h1>
+                <form [formGroup]="slotForm" (submit)="requestslot()">
+                  
+                    <div class="row ml-5 mr-5">
+                        <div class="col-md-6 col-xs-12 mt-3">
+              <label for="hospital">Hospital Name</label> 
+              <input type="text" class="form-control" placeholder="Enter Hospital Name" formControlName="hospital" id="hospital">
+              <div class="text-danger" *ngIf="hospital.invalid && hospital.errors.required && hospital.touched">Hospital Name is required</div>
+                        </div>
+                        <div class="col-md-6 col-xs-12  mt-3">
+                                <label for="city">City</label> 
+              <input type="text" class="form-control" placeholder="Enter City" formControlName="city" id="city">
+              <div class="text-danger" *ngIf="city.invalid && city.errors.required && city.touched">City is required</div>
+                   </div>
+                    </div>
+                    <div class="row ml-5 mr-5">
+                        <div class="col-md-6 col-xs-12 mt-3">
+                                <label for="date">SlotDate</label>
+                                <input type="date" class="form-control" id="date" formControlName="date" [formControl]="date">
+                                <div class ="text-danger" *ngIf = "date.invalid && date.errors.required && date.touched"> Date of Launch is required</div>   
+                                           </div>
+                        <div class="col-md-6 col-xs-12 mt-3">
+                                <label for="time">Time</label>
+                            <select class="form-control" id="time" formControlName="time" name="time">  
+                                <option hidden>selected</option>
+                                <option value="12pm-1pm">1am-2am</option>    
+                                    <option value="1am-2am">1am-2am</option>
+                                    <option value="2am-3am">2am-3am</option>
+                                    <option value="3am-4am">3am-4am</option>
+                                    <option value="4am-5am">4am-5am</option>
+                                    <option value="5am-6am">5am-6am</option>
+                                    <option value="6am-7am">6am-7am</option>
+                                    <option value="7am-8am">7am-8am</option>
+                                    <option value="8am-9am">8am-9am</option>
+                                    <option value="9am-10am">9am-10am</option>
+                                    <option value="10am-11am">10am-11am</option>
+                                    <option value="11am-12am">11am-12am</option>
+                                    <option value="12pm-1pm">12pm-1pm</option>
+                                    <option value="1pm-2pm">1pm-2pm</option>
+                                    <option value="2pm-3pm">2pm-3pm</option>
+                                    <option value="3pm-4pm">3pm-4pm</option>
+                                    <option value="4pm-5pm">4pm-5pm</option>
+                                    <option value="5pm-6pm">5pm-6pm</option>
+                                    <option value="6pm-7pm">6pm-7pm</option>
+                                    <option value="7pm-8pm">7pm-8pm</option>
+                                    <option value="8pm-9pm">8pm-9pm</option>
+                                    <option value="9pm-10pm">9pm-10pm</option>
+                                    <option value="10pm-11pm">10pm-11pm</option>
+                                    <option value="11pm-12pm">11pm-12pm</option>
+                                    
+                                    
+                                <!--  <option *ngFor="let g of categories" [ngValue]="g" >{{g}}</option>-->
+                            </select>
+                            <div class ="text-danger" *ngIf = "time.invalid && time.errors.required && time.touched">Time is required</div>  
+                  </div>   
+                    </div>
+                    
+                   
+                    <div class="row mt-3 ml-5 mr-5 mb-5">
+                        
+                        <div class="col-12">
+                            <button type="submit" class="btn cart" [disabled]="!slotForm.valid">Signup</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    

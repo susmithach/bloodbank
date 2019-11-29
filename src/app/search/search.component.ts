@@ -43,4 +43,8 @@ requestblood()
 {
   this.router.navigate(['request']);
 }
+donateBlood()
+{
+  this.router.navigate(['donate']);
+}
 }

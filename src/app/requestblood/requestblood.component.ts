@@ -49,7 +49,7 @@ get contactnumber()
 {
   return this.requestForm.get('contactnumber');
 }
-requestBlood(req:request)
+requestBlood()
 {
   let NewRequest:request={bloodgroup:this.requestForm.value["bloodgroup"],
   state:this.requestForm.value["state"],
