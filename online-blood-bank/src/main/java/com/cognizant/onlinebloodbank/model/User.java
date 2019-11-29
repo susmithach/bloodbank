@@ -76,9 +76,9 @@ private String contactnumber;
 	public List<Role> getRoles() {
 		return roles;
 	}
-	@OneToMany(mappedBy="userid")
+	@OneToMany(mappedBy="userid",cascade = CascadeType.ALL)
 	private List<Request> requests;
-	@OneToOne(mappedBy="userId")
+	@OneToOne(mappedBy="userId",cascade = CascadeType.ALL)
 	private Donate donate;
 	public List<Request> getRequests() {
 		return requests;

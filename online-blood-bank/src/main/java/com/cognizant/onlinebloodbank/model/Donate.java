@@ -34,15 +34,15 @@ private String area;
     @Column(name="do_pincode")
 	private int pincode;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="do_us_fk")
 	private User userId;
-@OneToOne(mappedBy="donateid")
+@OneToOne(mappedBy="donateid",cascade = CascadeType.ALL)
 private Slot slotid;
 
-	/*public Slot getSlotid() {
+public Slot getSlotid() {
 	return slotid;
-}*/
+}
 
 public void setSlotid(Slot slotid) {
 	this.slotid = slotid;

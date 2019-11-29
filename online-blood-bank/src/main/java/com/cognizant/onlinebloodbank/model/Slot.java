@@ -1,6 +1,8 @@
 package com.cognizant.onlinebloodbank.model;
 
 
+
+
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -17,7 +19,6 @@ import javax.validation.constraints.NotNull;
 @Table(name="slot")
 public class Slot {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="so_id")
 private int so_id;
 	@Column(name="hospital")
@@ -35,7 +36,7 @@ private String time;
 public int getSo_id() {
 	return so_id;
 }
-@OneToOne(cascade = CascadeType.ALL)
+@OneToOne()
 @JoinColumn(name="so_id")
 private Donate donateid;
 public void setSo_id(int so_id) {

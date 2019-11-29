@@ -48,9 +48,10 @@ public List<Slot> getAll()
 			
 		}
 		Donate d=userRepository.findByUsername(id).getDonate();
+	    slot.setSo_id(d.getDo_id());
 		d.setSlotid(slot);
-	    donateRepository.save(d);
-	    slotRepository.save(slot);
+	   donateRepository.save(d);
+	    //slotRepository.save(slot);
 	}
 	
 }
