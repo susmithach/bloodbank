@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BloodbankServiceService } from 'src/bloodbank-service.service';
+import { donate } from '../donate';
+import { search1 } from '../search1';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private formBuild:FormBuilder,private router:Router) { }
+  constructor(private formBuild:FormBuilder,private router:Router,private bloodservice:BloodbankServiceService) { }
   loginSearchForm :FormGroup;
   ngOnInit() {
     this.loginSearchForm = this.formBuild.group({
@@ -47,4 +50,23 @@ donateBlood()
 {
   this.router.navigate(['donate']);
 }
+donatelist:donate[];
+
+
+
+searchForBlood()
+{
+  let NewSearch:search1={bloodgroup:this.loginSearchForm.value["bloodgroup"],
+  state:this.loginSearchForm.value["state"],
+  pincode:this.loginSearchForm.value["pincode"],
+  area:this.loginSearchForm.value["area"]};
+  console.log(NewSearch)
+   this.bloodservice.searchBlood(NewSearch).subscribe(data=>{this.donatelist=data
+    console.log(data)
+    this.bloodservice.donor=this.donatelist
+  this.router.navigate(['requestlist'])
+  })
+  
+}
+
 }

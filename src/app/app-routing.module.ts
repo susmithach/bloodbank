@@ -7,6 +7,7 @@ import { SearchComponent } from './search/search.component';
 import { RequestbloodComponent } from './requestblood/requestblood.component';
 import { DonatebloodComponent } from './donateblood/donateblood.component';
 import { SlotComponent } from './slot/slot.component';
+import { RequestlistComponent } from './requestlist/requestlist.component';
 
 
 const routes: Routes = [ { path: 'signup', component: SignupComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [ { path: 'signup', component: SignupComponent},
 {path:'search',component:SearchComponent},
 {path:'request',component:RequestbloodComponent},
 {path:'donate',component:DonatebloodComponent},
-{path:'slot',component:SlotComponent}
+{path:'slot',component:SlotComponent},
+{path:'requestlist',component:RequestlistComponent}
 ];
 
 @NgModule({

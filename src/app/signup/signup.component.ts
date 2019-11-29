@@ -92,7 +92,7 @@ get pincode()
 }
 get email()
 {
-  return this,this.signUpForm.get('email');
+  return this.signUpForm.get('email');
 }
   matchConfirmPassword(formControl: FormControl): { [s: string]: boolean } {
     if (this.signUpForm) {

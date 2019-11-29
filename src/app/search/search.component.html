@@ -4,7 +4,7 @@
                     <h4>Search your requirement</h4>
             </div>
             <div class="card-body">
-                    <form [formGroup]="loginSearchForm">
+                    <form [formGroup]="loginSearchForm" (submit)="searchForBlood()">
                             <div class="row ml-5 mr-5">
                                     <div class="col-md-6 col-xs-12 mt-3">
                                         <label for="state">State</label>
@@ -108,7 +108,7 @@
                                                 <option value="">Select Blood Group</option>
                                                 <option value="Apositive">A +ve</option>
                                                 <option value="Anegative">A -ve</option>
-                                                <option value="Bpositive">B +ve</option>
+                                                <option value="B+ve">B +ve</option>
                                                 <option value="Bnegative">B -ve</option>
                                                 <option value="Opositive">O +ve</option>
                                                 <option value="Onegative">O -ve</option>
@@ -122,7 +122,8 @@
                      <br/>  
                      <div class="row ml-5 mr-5">   
                                     <div class="col-md-6 col-xs-12 mt-3">      
-              <a routerLink="registration/" class="btn btn-primary button1">Search</a>
+                                            <button type="submit" class="btn btn-danger" [disabled]="!loginSearchForm.valid">Request for Blood</button>
+
             </div>
     </div>
             </form>

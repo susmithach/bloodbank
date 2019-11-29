@@ -8,6 +8,7 @@ import { environment } from './environments/environment';
 import { request } from './app/request';
 import { donate } from './app/donate';
 import { slot } from './app/slot';
+import { search1 } from './app/search1';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ import { slot } from './app/slot';
 export class BloodbankServiceService {
 userdata:user;
 isLoggedIn=false;
+donor:donate[];
   constructor(private router:Router,private httpClient: HttpClient,private authservice:AuthServiceService)
    {
 
@@ -44,5 +46,10 @@ isLoggedIn=false;
   {
     const headers = new HttpHeaders({Authorization: 'Bearer ' +this.authservice.accessToken});
     return this.httpClient.post<slot>(environment.baseUrl+'slot'+'/'+this.authservice.loggedInUser,sl,{headers});
+  }
+  searchBlood(se:search1):Observable<any>
+  {
+    const headers = new HttpHeaders({Authorization: 'Bearer ' +this.authservice.accessToken});
+    return this.httpClient.post<donate[]>("http://localhost:8022/donate",se,{headers});
   }
 }
