@@ -78,7 +78,7 @@ private String contactnumber;
 	}
 	@OneToMany(mappedBy="userid",cascade = CascadeType.ALL)
 	private List<Request> requests;
-	@OneToOne(mappedBy="userId",cascade = CascadeType.ALL)
+	@OneToOne(mappedBy="userId",cascade = CascadeType.ALL,orphanRemoval=true)
 	private Donate donate;
 	public List<Request> getRequests() {
 		return requests;

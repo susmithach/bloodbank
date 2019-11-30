@@ -52,4 +52,9 @@ donor:donate[];
     const headers = new HttpHeaders({Authorization: 'Bearer ' +this.authservice.accessToken});
     return this.httpClient.post<donate[]>("http://localhost:8022/donate",se,{headers});
   }
+  getrequest():Observable<any>
+  {
+    //const headers = new HttpHeaders({Authorization: 'Bearer ' +this.authservice.accessToken});
+    return this.httpClient.get<request[]>(environment.baseUrl+'request');
+  }
 }

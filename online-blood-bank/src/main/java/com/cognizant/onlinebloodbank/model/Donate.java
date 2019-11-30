@@ -37,7 +37,7 @@ private String area;
 	@OneToOne
 	@JoinColumn(name="do_us_fk")
 	private User userId;
-@OneToOne(mappedBy="donateid",cascade = CascadeType.ALL)
+@OneToOne(mappedBy="donateid",cascade = CascadeType.ALL,orphanRemoval=true)
 private Slot slotid;
 
 public Slot getSlotid() {

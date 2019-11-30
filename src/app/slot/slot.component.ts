@@ -14,6 +14,7 @@ export class SlotComponent implements OnInit {
 
   constructor(private formBuild:FormBuilder,private router:Router,private authservice:AuthServiceService,private bloodservice:BloodbankServiceService) { }
   slotForm:FormGroup;
+  slotbook:boolean=false;
     ngOnInit() {
     
       this.slotForm = this.formBuild.group({
@@ -50,6 +51,11 @@ export class SlotComponent implements OnInit {
     city:this.slotForm.value["city"],
     date:this.slotForm.value["date"],
     time:this.slotForm.value["time"]};
-     this.bloodservice.requestForSlot(NewSlot).subscribe(data=>{this.router.navigate(['search'])})
+     this.bloodservice.requestForSlot(NewSlot).subscribe(data=>{this.router.navigate(['search'])}, 
+     (error)=>{
+      console.log(error);
+      console.log("slot booked");
+      this.slotbook=true;
+    })
   }
 }

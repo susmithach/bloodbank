@@ -21,7 +21,7 @@ public void addRequest(String id,Request request)
 	u.getRequests().add(request);
 	request.setUserid(u);
 	userRepository.save(u);
-	requestRepository.save(request);
+//	requestRepository.save(request);
 }
 public List<Request> getAll()
 {

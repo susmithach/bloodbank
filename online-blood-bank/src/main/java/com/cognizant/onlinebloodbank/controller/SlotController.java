@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cognizant.onlinebloodbank.exception.SlotsbookedException;
 import com.cognizant.onlinebloodbank.model.Donate;
 import com.cognizant.onlinebloodbank.model.Slot;
+import com.cognizant.onlinebloodbank.model.User;
 import com.cognizant.onlinebloodbank.repository.DonateRepository;
 import com.cognizant.onlinebloodbank.repository.SlotRepository;
 import com.cognizant.onlinebloodbank.repository.UserRepository;
@@ -36,22 +37,27 @@ public List<Slot> getAll()
 	public void slotbooking(@PathVariable String id,@RequestBody Slot slot) throws SlotsbookedException
 	{
 		List<Slot> slots=slotRepository.findAll();
-		
+		Donate d=userRepository.findByUsername(id).getDonate();
 		for(Slot s:slots)
 		{
-			if(slot.getDate().compareTo(s.getDate())==0 && slot.getCity().equalsIgnoreCase(s.getCity())
+			if(d.getSlotid()==null){
+			//System.out.println(slot.getDate().compareTo(s.getDate()));
+			if(slot.getDate().compareTo(s.getDate())==1 && slot.getCity().equalsIgnoreCase(s.getCity())
 					&& slot.getHospital().equalsIgnoreCase(s.getHospital())
 					&& slot.getTime().equalsIgnoreCase(s.getTime()))
 					{
 				    throw new SlotsbookedException();
 					}
+			}
 			
 		}
-		Donate d=userRepository.findByUsername(id).getDonate();
+		
+		
 	    slot.setSo_id(d.getDo_id());
 		d.setSlotid(slot);
+	
 	   donateRepository.save(d);
-	    //slotRepository.save(slot);
+	   // slotRepository.save(slot);
 	}
 	
 }

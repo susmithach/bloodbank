@@ -1,4 +1,5 @@
 <div class="container center">
+    
 <h1><div class="badge badge-warning">
     WELCOME TO ONLINE BLOOD BANK MANAGEMENT SYSTEM!
 </div></h1>
@@ -10,5 +11,20 @@
         available in each blood bank and help them manage in a better way.
 </div>
 <button type="submit" (click)="register()">Register now</button>
+<div class="col 6">
+
+    <div class="card-header">
+        <h5>Requests</h5>
+    </div>
+    <div *ngFor="let i of reqlst">
+    <div class="card-text">
+        <div>BloodGroup:{{i.bloddgroup}}</div>
+        <div>State:{{i.state}}</div>
+        <div *ngIf="check">contact number:{{i.contactnumber}}</div>
+        <div>pincode:{{i.pincode}}</div>
+        <div>----------------------------</div>
+    </div>
+</div>
+</div>
 
 </div>

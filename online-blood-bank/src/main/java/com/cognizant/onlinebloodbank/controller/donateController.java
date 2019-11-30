@@ -58,14 +58,16 @@ public class donateController {
 			  Date date=new Date();
 			  long duration=date.getTime()-d.getSlotid().getDate().getTime();
 			    long days=TimeUnit.MILLISECONDS.toDays(duration);
-			    if(days>95){}
+			    if(days>95){
+	                   edl.add(d);
+			    }
 		  }
-		  for(int j=0;j<dl.size();j++){
-		         if(dl.get(j).getBloodgroup().equalsIgnoreCase(search.getBloodgroup())&&
-		                       dl.get(j).getState().equalsIgnoreCase(search.getState())&&
-		                       dl.get(j).getArea().equalsIgnoreCase(search.getArea())&&
-		                       dl.get(j).getPincode()==search.getPincode()){
-		                  newdl.add(dl.get(j));
+		  for(int j=0;j<edl.size();j++){
+		         if(edl.get(j).getBloodgroup().equalsIgnoreCase(search.getBloodgroup())&&
+		                       edl.get(j).getState().equalsIgnoreCase(search.getState())&&
+		                       edl.get(j).getArea().equalsIgnoreCase(search.getArea())&&
+		                       edl.get(j).getPincode()==search.getPincode()){
+		                  newdl.add(edl.get(j));
 		             }
 		         }
 		         return newdl;
