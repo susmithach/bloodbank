@@ -126,3 +126,46 @@
     width: 25rem
 
 }
+.card4{
+    position:fixed;
+    bottom: 15%;
+    left: 15%;
+    background-color: white;
+    opacity: 0.90;
+    width: 25rem
+}
+/* .one1{
+height:60%;
+width:500px;
+} */
+.abcde
+{
+	background-color:white;
+}
+.bimage {
+    /* The image used */
+    background-image: url("https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
+  
+    /* Control the height of the image */
+    min-height: 900px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .bimage1 {
+    /* The image used */
+    background-image: url("https://images.unsplash.com/photo-1504439468489-c8920d796a29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  
+    /* Control the height of the image */
+    min-height: 900px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+ 

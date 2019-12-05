@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private formBuild:FormBuilder,private router:Router,private bloodservice:BloodbankServiceService) { }
   loginSearchForm :FormGroup;
+  searchresult:boolean=false;
   ngOnInit() {
     this.loginSearchForm = this.formBuild.group({
       state: ['',[
@@ -51,7 +52,7 @@ donateBlood()
   this.router.navigate(['donate']);
 }
 donatelist:donate[];
-
+result:boolean=false;
 
 
 searchForBlood()
@@ -64,7 +65,15 @@ searchForBlood()
    this.bloodservice.searchBlood(NewSearch).subscribe(data=>{this.donatelist=data
     console.log(data)
     this.bloodservice.donor=this.donatelist
-  this.router.navigate(['requestlist'])
+  this.router.navigate(['search'])
+  this.searchresult=true;
+  this.result=false;
+  },
+  (error)=>{
+    console.log(error);
+    console.log("slot already exists");
+    this.result=true;
+    this.searchresult=false;
   })
   
 }

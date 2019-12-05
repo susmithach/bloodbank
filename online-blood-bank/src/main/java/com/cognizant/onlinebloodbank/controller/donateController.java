@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cognizant.onlinebloodbank.exception.NoSearchResultException;
 import com.cognizant.onlinebloodbank.model.Donate;
 import com.cognizant.onlinebloodbank.model.Search;
 import com.cognizant.onlinebloodbank.model.User;
@@ -47,13 +48,13 @@ public class donateController {
 		}
 	
 	@PostMapping
-	public List<Donate> searchForDonor(@RequestBody Search search)
+	public List<Donate> searchForDonor(@RequestBody Search search) throws NoSearchResultException
 	{
 		  List<Donate> dl= new ArrayList<Donate>();
 		  dl=donateRepository.findAll();
 		  List<Donate> newdl=new ArrayList<Donate>();
 		  List<Donate> edl=new ArrayList<Donate>();
-		  for(Donate d:dl)
+		  /*for(Donate d:dl)
 		  {
 			  Date date=new Date();
 			  long duration=date.getTime()-d.getSlotid().getDate().getTime();
@@ -61,15 +62,23 @@ public class donateController {
 			    if(days>95){
 	                   edl.add(d);
 			    }
-		  }
-		  for(int j=0;j<edl.size();j++){
-		         if(edl.get(j).getBloodgroup().equalsIgnoreCase(search.getBloodgroup())&&
-		                       edl.get(j).getState().equalsIgnoreCase(search.getState())&&
-		                       edl.get(j).getArea().equalsIgnoreCase(search.getArea())&&
-		                       edl.get(j).getPincode()==search.getPincode()){
-		                  newdl.add(edl.get(j));
+			  
+			  
+		  }*/
+		
+		 
+		  for(int j=0;j<dl.size();j++){
+		         if(dl.get(j).getBloodgroup().equalsIgnoreCase(search.getBloodgroup())&&
+		                       dl.get(j).getState().equalsIgnoreCase(search.getState())&&
+		                       dl.get(j).getArea().equalsIgnoreCase(search.getArea())&&
+		                       dl.get(j).getPincode()==search.getPincode()){
+		        	 System.out.println(dl);
+		                  newdl.add(dl.get(j));
 		             }
 		         }
+		  System.out.println(newdl);
+		  if(newdl.isEmpty())
+			  throw new NoSearchResultException();
 		         return newdl;
 		  
 	}

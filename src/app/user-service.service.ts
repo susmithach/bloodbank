@@ -20,6 +20,7 @@ export class UserServiceService {
       this.userExists=data;
       if(data)
       {
+        window.alert("New User created successfully")
         this.router.navigate(['login'])
       }
     },
@@ -30,6 +31,6 @@ export class UserServiceService {
 }
 addUsers(user:user):Observable<any>
   {
-    return this.httpclient.post<user>(environment.baseUrl+'users',user)
+    return this.httpclient.post<user>(environment.baseUrl+'authenticateService/users',user)
   }
 }

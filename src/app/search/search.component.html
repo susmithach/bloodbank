@@ -106,14 +106,14 @@
                                         <label for="bloodgroup">Blood Group</label>
                                         <select class="form-control" formControlName="bloodgroup" id="bloodgroup" name="bloodgroup">
                                                 <option value="">Select Blood Group</option>
-                                                <option value="Apositive">A +ve</option>
-                                                <option value="Anegative">A -ve</option>
+                                                <option value="A+ve">A +ve</option>
+                                                <option value="A-ve">A -ve</option>
                                                 <option value="B+ve">B +ve</option>
-                                                <option value="Bnegative">B -ve</option>
-                                                <option value="Opositive">O +ve</option>
-                                                <option value="Onegative">O -ve</option>
-                                                <option value="ABpositive">AB +ve</option>
-                                                <option value="ABnegative">AB -ve</option>   
+                                                <option value="B-ve">B -ve</option>
+                                                <option value="O+ve">O +ve</option>
+                                                <option value="O-ve">O -ve</option>
+                                                <option value="AB+ve">AB +ve</option>
+                                                <option value="AB-ve">AB -ve</option>   
                                 </select>
                                 <div class ="text-danger" *ngIf = "bloodgroup.invalid && bloodgroup.errors.required && bloodgroup.touched">Blood group is required</div>  
   
@@ -122,7 +122,7 @@
                      <br/>  
                      <div class="row ml-5 mr-5">   
                                     <div class="col-md-6 col-xs-12 mt-3">      
-                                            <button type="submit" class="btn btn-danger" [disabled]="!loginSearchForm.valid">Request for Blood</button>
+                                            <button type="submit" class="btn btn-danger" [disabled]="!loginSearchForm.valid">Search for Blood group</button>
 
             </div>
     </div>
@@ -151,5 +151,36 @@
             
                     </div>
                     </div>
-    
+                    <div *ngIf="searchresult">
+                    <div class="card card4">
+                            <div class="card-header">
+                            <h4>Search Results</h4>
+                            </div>
+                            <div class="card-body">
+                                   
+                                            <div *ngFor="let i of donatelist">
+                                                    <div class="card-text">
+                                                        <div>BloodGroup:{{i.bloodgroup}}</div>
+                                                        <div>State:{{i.state}}</div>
+                                                        <div *ngIf="check">contact number:{{i.contactnumber}}</div>
+                                                        <div>pincode:{{i.pincode}}</div>
+                                                        <div>----------------------------</div>
+                                                    </div>
+                                                </div>
+                                    </div>
+                           
+                        
+                            </div>
+                            </div>
+<div *ngIf="result">
+                            <div class="card card4">
+                                    <div class="card-body">
+                                    <h4>No Search Results</h4>
+                                    </div>
+                                   
+                                   
+                                
+                                    </div>
+                           
+                                </div>
 </div>

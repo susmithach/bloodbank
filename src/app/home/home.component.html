@@ -1,30 +1,37 @@
 <div class="container center">
-    
-<h1><div class="badge badge-warning">
+    <div class="card  abcde ">
+<h1><div class="card-header">
     WELCOME TO ONLINE BLOOD BANK MANAGEMENT SYSTEM!
 </div></h1>
-<div class="card sz">
+<div class="card-body">
     Blood Bank Management System (BBMS) is designed to store, process,
      retriev and analyze information concerned with the administrative and
       inventory management within a blood bank. This project aims at maintaining all
        the information pertaining to blood donors,different blood groups
         available in each blood bank and help them manage in a better way.
 </div>
+</div>
 <button type="submit" (click)="register()">Register now</button>
-<div class="col 6">
-
-    <div class="card-header">
-        <h5>Requests</h5>
+<div class="card">
+        <div class="card-header">
+            <h5>Blood Requests</h5>
+        </div>
+    <div class="row">
+        <div class="col-4">
+                <div *ngFor="let i of reqlst">
+                        <div class="card-text ">
+                            <div>BloodGroup:{{i.bloodgroup}}</div>
+                            <div>State:{{i.state}}</div>
+                            <div *ngIf="check">contact number:{{i.contactnumber}}</div>
+                            <div>pincode:{{i.pincode}}</div>
+                            <div>----------------------------</div>
+                        </div>
+                    </div>
+        </div>
     </div>
-    <div *ngFor="let i of reqlst">
-    <div class="card-text">
-        <div>BloodGroup:{{i.bloddgroup}}</div>
-        <div>State:{{i.state}}</div>
-        <div *ngIf="check">contact number:{{i.contactnumber}}</div>
-        <div>pincode:{{i.pincode}}</div>
-        <div>----------------------------</div>
     </div>
-</div>
-</div>
 
-</div>
+
+
+<!--
+-->

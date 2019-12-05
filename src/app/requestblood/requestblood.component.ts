@@ -56,6 +56,8 @@ requestBlood()
   pincode:this.requestForm.value["pincode"],
   area:this.requestForm.value["area"],
   contactnumber:this.requestForm.value["contactnumber"]};
-   this.bloodservice.requestForBlood(NewRequest).subscribe(data=>{this.router.navigate(['search'])})
+   this.bloodservice.requestForBlood(NewRequest).subscribe(data=>{
+    window.alert("request registered successfully") 
+    this.router.navigate(['search'])})
 }
 }

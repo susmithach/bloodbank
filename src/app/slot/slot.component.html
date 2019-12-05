@@ -7,6 +7,9 @@
                                 <div class="alert-danger col-12 px-auto" *ngIf="slotbook">
                                         slot already exists
                                       </div>
+                                      <div class="alert-success col-12 px-auto" *ngIf="result">
+                                            slot booked successfully
+                                          </div>
                         </div>
                     <div class="row ml-5 mr-5">
                         <div class="col-md-6 col-xs-12 mt-3">
@@ -66,7 +69,7 @@
                     <div class="row mt-3 ml-5 mr-5 mb-5">
                         
                         <div class="col-12">
-                            <button type="submit" class="btn cart" [disabled]="!slotForm.valid">Signup</button>
+                            <button type="submit" class="btn cart" [disabled]="!slotForm.valid">Book Slot</button>
                         </div>
                     </div>
                 </form>

@@ -32,7 +32,7 @@ export class AuthServiceService {
     let credentials = btoa(user+':'+password);
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Basic '+credentials)
-    return this.http.get(this.baseUrl+"authenticate", {headers})
+    return this.http.get(this.baseUrl+'authenticateService/authenticate', {headers})
   }
   public setToken(token: string) {
     this.token = token;
@@ -71,6 +71,7 @@ export class AuthServiceService {
         // this.setToken(data.token);
         this.accessToken=data.token;
         console.log(this.accessToken)
+        window.alert("Login successfully")
        // this.router.navigate(['search-bar']);
        this.router.navigate(['search']);
       },

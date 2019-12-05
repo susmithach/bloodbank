@@ -44,17 +44,19 @@ export class SlotComponent implements OnInit {
   {
     return this.slotForm.get('time');
   }
-  
+  result:boolean=false;
   requestslot()
   {
     let NewSlot:slot={hospital:this.slotForm.value["hospital"],
     city:this.slotForm.value["city"],
     date:this.slotForm.value["date"],
     time:this.slotForm.value["time"]};
-     this.bloodservice.requestForSlot(NewSlot).subscribe(data=>{this.router.navigate(['search'])}, 
+     this.bloodservice.requestForSlot(NewSlot).subscribe(data=>{
+    this.result=true;
+      this.router.navigate(['slot'])}, 
      (error)=>{
       console.log(error);
-      console.log("slot booked");
+      console.log("slot already exists");
       this.slotbook=true;
     })
   }

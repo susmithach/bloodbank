@@ -66,6 +66,12 @@ public String getTime() {
 public void setTime(String time) {
 	this.time = time;
 }
+/*public Donate getDonateid() {
+	return donateid;
+}*/
+public void setDonateid(Donate donateid) {
+	this.donateid = donateid;
+}
 
 
 
